@@ -180,7 +180,7 @@ return [
         // Tambahan 
         Yajra\Datatables\DatatablesServiceProvider::class,
         Milon\Barcode\BarcodeServiceProvider::class,
-        // Barryvdh\DomPDF\ServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
 
     ],
 
@@ -233,7 +233,7 @@ return [
         // Tambahan
         'Datatables' => Yajra\Datatables\Facades\Datatables::class,
         'DNS1D' => Milon\Barcode\Facades\DNS1DFacade::class,
-        // 'PDF' => Barryvdh\DomPDF\Facade::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
 

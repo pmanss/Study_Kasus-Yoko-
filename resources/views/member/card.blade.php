@@ -28,8 +28,8 @@
     <tr>
       <td align="center">
       <div class="box">
-        <img src="{{ asset('public/images/card.png') }}" class="card">
-        <div class="kode">{{ $data->kode_member }}</div>
+        <img src="{{ ('images/card.png') }}" class="card">
+        <div class="kode">{{ $data->nama }}</div>
         <div class="barcode">
           <img src="data:image/png;base64,{{ DNS1D::getBarcodePNG( $data->kode_member, 'C39') }}" height="30" width="130">
           <br>{{ $data->kode_member }}

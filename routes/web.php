@@ -37,6 +37,10 @@ Route::group(['middleware' => ['web', 'cekuser:1' ]], function(){
    Route::post('produk/cetak', 'ProdukController@printBarcode');
    Route::resource('produk', 'ProdukController');
 
+   Route::resource('inventori', 'InventoriController');
+
+    
+
    Route::get('supplier/data', 'SupplierController@listData')->name('supplier.data');
    Route::resource('supplier', 'SupplierController');
 

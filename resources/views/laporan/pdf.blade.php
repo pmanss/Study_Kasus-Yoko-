@@ -2,7 +2,19 @@
 <html>
 <head>  
   <title>Produk PDF</title>
-  <link rel="stylesheet" href="{{ asset('public/adminLTE/bootstrap/css/bootstrap.min.css') }}">
+  <style type="text/css">
+      table td{font: arial 12px;}
+      table.data td,
+      table.data th{
+         border: 1px solid #ccc;
+         padding: 5px;
+      }
+      table.data th{
+         text-align: center;
+      }
+      table.data{ border-collapse: collapse }
+   </style>
+  </style>
 </head>
 <body>
  
@@ -10,14 +22,13 @@
 <h4 class="text-center">Tanggal  {{ tanggal_indonesia($tanggal_awal) }} s/d {{ tanggal_indonesia($tanggal_akhir) }} </h4>
 
          
-<table class="table table-striped">
+<table class="data">
 <thead>
    <tr>
     <th>No</th>
     <th>Tanggal</th>
     <th>Penjualan</th>
     <th>Pembelian</th>
-    <th>Pengeluaran</th>
     <th>Pendapatan</th>
    </tr>
 

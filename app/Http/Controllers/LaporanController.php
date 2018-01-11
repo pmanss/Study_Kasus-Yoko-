@@ -33,17 +33,17 @@ class LaporanController extends Controller
        $pendapatan = $total_penjualan - $total_pembelian - $total_pengeluaran;
        $total_pendapatan += $pendapatan;
 
+
        $no ++;
        $row = array();
        $row[] = $no;
        $row[] = tanggal_indonesia($tanggal, false);
        $row[] = format_uang($total_penjualan);
        $row[] = format_uang($total_pembelian);
-       $row[] = format_uang($total_pengeluaran);
        $row[] = format_uang($pendapatan);
        $data[] = $row;
      }
-     $data[] = array("", "", "", "", "Total Pendapatan", format_uang($total_pendapatan));
+     $data[] = array("", "", "", "",format_uang($total_pendapatan));
 
      return $data;
    }

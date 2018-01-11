@@ -17,11 +17,11 @@
    
      <div class="box-body">
 
-<!-- <table>
+<table>
   <tr><td width="150">Supplier</td><td><b>{{ $supplier->nama }}</b></td></tr>
   <tr><td>Alamat</td><td><b>{{ $supplier->alamat }}</b></td></tr>
   <tr><td>Telpon</td><td><b>{{ $supplier->telpon }}</b></td></tr>
-</table> -->
+</table>
 <hr>
 
 <form class="form form-horizontal form-produk" method="post">
@@ -86,13 +86,6 @@
 
       <div class="form-group">
         <label for="bayarrp" class="col-md-4 control-label">Bayar</label>
-        <div class="col-md-8">
-          <input type="text" class="form-control" id="bayarrp" readonly>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="bayarrp" class="col-md-4 control-label">Kembalian</label>
         <div class="col-md-8">
           <input type="text" class="form-control" id="bayarrp" readonly>
         </div>

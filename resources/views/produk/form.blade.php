@@ -33,13 +33,13 @@
     </div>
   </div>
 
-  <!-- <div class="form-group">
-    <label for="merk" class="col-md-3 control-label">Merk</label>
+  <div class="form-group">
+    <label for="deskripsi" class="col-md-3 control-label">Deskripsi</label>
     <div class="col-md-6">
-      <input id="merk" type="text" class="form-control" name="merk" required>
+      <input id="deskripsi" type="text" class="form-control" name="deskripsi" required>
       <span class="help-block with-errors"></span>
     </div>
-  </div> -->
+  </div>
 
   <div class="form-group">
     <label for="harga_beli" class="col-md-3 control-label">Harga Beli</label>
@@ -49,13 +49,6 @@
     </div>
   </div>
 
-  <!-- <div class="form-group">
-    <label for="diskon" class="col-md-3 control-label">Diskon</label>
-    <div class="col-md-2">
-      <input id="diskon" type="text" class="form-control" name="diskon" required>
-      <span class="help-block with-errors"></span>
-    </div>
-  </div> -->
 
   <div class="form-group">
     <label for="harga_jual" class="col-md-3 control-label">Harga Jual</label>
@@ -64,14 +57,14 @@
       <span class="help-block with-errors"></span>
     </div>
   </div>
-<!-- 
+
   <div class="form-group">
     <label for="stok" class="col-md-3 control-label">Stok</label>
     <div class="col-md-2">
       <input id="stok" type="text" class="form-control" name="stok" required>
       <span class="help-block with-errors"></span>
     </div>
-  </div> -->
+  </div>
 
   <input type="hidden" id="id" name="id">
   <div class="form-group">
@@ -82,13 +75,13 @@
     </div>
   </div>
 
-  <div class="form-group">
+  <!-- <div class="form-group">
     <label for="foto" class="col-md-3 control-label">Foto Produk</label>
     <div class="col-md-4">
       <input id="foto" type="file" class="form-control" name="foto">
       <br><div class="tampil-kartu"></div>
     </div>
-  </div>
+  </div> -->
   
 </div>
    

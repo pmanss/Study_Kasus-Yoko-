@@ -13,6 +13,7 @@
   <link rel="stylesheet" href='/assets/dist/css/skins/skin-blue.min.css'>
   <link rel="stylesheet" href='/assets/plugins/datatables/dataTables.bootstrap.css'>
   <link rel="stylesheet" href='/assets/plugins/datepicker/datepicker3.css'>
+  
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
   <div class="wrapper">
@@ -20,7 +21,10 @@
    <!-- Header -->
    <header class="main-header">
     <a href="#" class="logo">   
-     <span class="logo-lg"><b>Pondok</b>IT</span>
+    <span class="logo-mini">
+      <img src="{{ ('/images/'.Auth::user()->foto) }}" width="45px">
+    </span>
+    <span class="logo-lg"><b>Pondok</b> IT</span>
    </a>
 
 
@@ -91,8 +95,8 @@
           </ul>
         </li>
       <li><a href="{{ route('user.index') }}""><i class="fa fa-user"></i> <span>Kasir</span></a></li>
-      <li><a href="{{ route('user.index') }}""><i class="fa fa-bank"></i> <span>Gerai Cabang</span></a></li>      
       <li><a href="{{ route('member.index') }}"><i class="fa fa-credit-card"></i> <span>Member</span></a></li>
+      <li><a href="{{ route('user.index') }}""><i class="fa fa-bank"></i> <span>Gerai Cabang</span></a></li>      
       <li class="treeview">
           <a href="#">
             <i class="glyphicon glyphicon-tags"></i>
@@ -102,17 +106,44 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ route('produk.index') }}"><i class="fa fa-cube"></i> Kartu Stok</a></li>
-            <li><a href="{{ route('kategori.index') }}"><i class="fa fa-cube"></i> Stok Masuk</a></li>
-            <li><a href="{{ route('kategori.index') }}"><i class="fa fa-cube"></i> Stok Keluar</a></li>
+            <li><a href="{{ route('inventori.data') }}"><i class="fa fa-cube"></i> Kartu Stok</a></li>
+            <li><a href="{{ route('stok.masuk') }}"><i class="fa fa-cube"></i> Stok Masuk</a></li>
+            <li><a href="{{ route('stok.keluar') }}"><i class="fa fa-cube"></i> Stok Keluar</a></li>
             
           </ul>
         </li>
-      <li><a href="{{ route('supplier.index') }}"><i class="fa fa-truck"></i> <span>Supplier</span></a></li>
-      <li><a href="{{ route('pengeluaran.index') }}"><i class="fa fa-money"></i> <span>Pengeluaran</span></a></li>      
-      <li><a href="{{ route('penjualan.index') }}"><i class="fa fa-upload"></i> <span>Penjualan</span></a></li>
-      <li><a href="{{ route('pembelian.index') }}"><i class="fa fa-download"></i> <span>Pembelian</span></a></li>
-      <li><a href="{{ route('laporan.index') }}"><i class="fa fa-file-pdf-o"></i> <span>Laporan</span></a></li>
+      
+      <!-- <li><a href="{{ route('pengeluaran.index') }}"><i class="fa fa-money"></i> <span>Pengeluaran</span></a></li>       -->
+
+
+      <li class="treeview">
+          <a href="#">
+            <i class="fa fa-th-large"></i>
+            <span>Pengeluaran</span>
+            <span class="pull-right-container">
+              <span class="label label-primary pull-right"><span class="glyphicon glyphicon-plus"></span></span>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+          <li><a href="{{ route('supplier.index') }}"><i class="fa fa-truck"></i> <span>Supplier</span></a></li>
+          <li><a href="{{ route('pembelian.index') }}"><i class="fa fa-download"></i> <span>Pembelian</span></a></li>
+          </ul>
+        </li>
+
+      <li class="treeview">
+          <a href="#">
+            <i class="fa fa-th-large"></i>
+            <span>Laporan</span>
+            <span class="pull-right-container">
+              <span class="label label-primary pull-right"><span class="glyphicon glyphicon-plus"></span></span>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ route('penjualan.index') }}"><i class="fa fa-file-pdf-o"></i> Transaksi Penjualan</a></li>
+             <li><a href="{{ route('laporan.index') }}"><i class="fa fa-file-pdf-o"></i> <span>Laporan Keseluruhan</span></a></li>
+          </ul>
+        </li>
+     
       <li><a href="{{ route('setting.index') }}"><i class="fa fa-gears"></i> <span>Setting</span></a></li>
       @else
       <li><a href="{{ route('transaksi.index') }}"><i class="fa fa-shopping-cart"></i> <span>Transaksi</span></a></li>
@@ -153,6 +184,7 @@
 
 <script src="/assets/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="/assets/bootstrap/js/uang.js"></script>
 <script src="/assets/dist/js/app.min.js"></script>
 
 <script src="/assets/plugins/chartjs/Chart.min.js"></script>
@@ -160,6 +192,7 @@
 <script src="/assets/plugins/datatables/dataTables.bootstrap.min.js"></script>
 <script src="/assets/plugins/datepicker/bootstrap-datepicker.js"></script>
 <script src="/js/validator.min.js"></script>
+
 @yield('script')
 
 </body>

@@ -43,7 +43,6 @@
       <th>Nama Produk</th>
       <th align="right">Harga</th>
       <th>Jumlah</th>
-      <th>Diskon</th>
       <th align="right">Sub Total</th>
       <th width="100">Aksi</th>
    </tr>
@@ -93,14 +92,14 @@
       <div class="form-group">
         <label for="bayarrp" class="col-md-4 control-label">Bayar</label>
         <div class="col-md-8">
-          <input type="text" class="form-control" id="bayarrp" readonly>
+          <input type="text" class="form-control" id="bayarrp"  readonly>
         </div>
       </div>
 
       <div class="form-group">
         <label for="diterima" class="col-md-4 control-label">Diterima</label>
         <div class="col-md-8">
-          <input type="number" class="form-control" value="0" name="diterima" id="diterima">
+          <input type="number" class="form-control" value="0" name="diterima" id="diterima" >
         </div>
       </div>
 

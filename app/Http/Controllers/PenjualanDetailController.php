@@ -45,7 +45,6 @@ class PenjualanDetailController extends Controller
        $row[] = $list->nama_produk;
        $row[] = "Rp. ".format_uang($list->harga_jual);
        $row[] = "<input type='number' class='form-control' name='jumlah_$list->id_penjualan_detail' value='$list->jumlah' onChange='changeCount($list->id_penjualan_detail)'>";
-       $row[] = $list->diskon."%";
        $row[] = "Rp. ".format_uang($list->sub_total);
        $row[] = '<div class="btn-group">
                <a onclick="deleteItem('.$list->id_penjualan_detail.')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>';
@@ -70,7 +69,6 @@ class PenjualanDetailController extends Controller
         $detail->kode_produk = $request['kode'];
         $detail->harga_jual = $produk->harga_jual;
         $detail->jumlah = 1;
-        $detail->diskon = $produk->diskon;
         $detail->sub_total = $produk->harga_jual - ($produk->diskon/100 * $produk->harga_jual);
         $detail->save();
 

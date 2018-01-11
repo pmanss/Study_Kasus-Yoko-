@@ -37,9 +37,6 @@ Route::group(['middleware' => ['web', 'cekuser:1' ]], function(){
    Route::post('produk/cetak', 'ProdukController@printBarcode');
    Route::resource('produk', 'ProdukController');
 
-   Route::resource('inventori', 'InventoriController');
-
-    
 
    Route::get('supplier/data', 'SupplierController@listData')->name('supplier.data');
    Route::resource('supplier', 'SupplierController');
@@ -47,6 +44,12 @@ Route::group(['middleware' => ['web', 'cekuser:1' ]], function(){
    Route::get('member/data', 'MemberController@listData')->name('member.data');
    Route::post('member/cetak', 'MemberController@printCard');
    Route::resource('member', 'MemberController');
+
+   Route::get('/inventori', 'InventoriController@index')->name('inventori.data');;
+   Route::get('/inventori/stok-masuk', 'InventoriController@stokmasuk')->name('stok.masuk');;
+   Route::get('/inventori/stok-keluar', 'InventoriController@stokkeluar')->name('stok.keluar');;
+   
+   
 
    Route::get('pengeluaran/data', 'PengeluaranController@listData')->name('pengeluaran.data');
    Route::resource('pengeluaran', 'PengeluaranController');

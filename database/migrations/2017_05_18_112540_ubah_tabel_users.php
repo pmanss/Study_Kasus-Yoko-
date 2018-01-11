@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePasswordResetsTable extends Migration
+class UbahTabelUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreatePasswordResetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('password_resets', function (Blueprint $table) {
-            $table->string('email', 100)->index();
-            $table->string('token', 100);
-            $table->timestamp('created_at')->nullable();
+        Schema::table('users', function(Blueprint $table){
+            $table->string('foto', 100)->nullable();
+            $table->integer('level')->unsigned()->default(2);
         });
     }
 
@@ -27,6 +26,6 @@ class CreatePasswordResetsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('password_resets');
+        //
     }
 }

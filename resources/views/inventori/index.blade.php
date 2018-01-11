@@ -15,7 +15,7 @@
     <div class="box">
       <div class="box-header">
         <a onclick="addForm()" class="btn btn-success"><i class="fa fa-plus-circle"></i> Tambah</a>
-        <!-- <a onclick="deleteAll()" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a> -->
+        <a onclick="deleteAll()" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
         <a onclick="printBarcode()" class="btn btn-info"><i class="fa fa-barcode"></i> Cetak Barcode</a>
       </div>
       <div class="box-body">  
@@ -26,15 +26,12 @@
 <thead>
    <tr>
       <th width="20"><input type="checkbox" value="1" id="select-all"></th>
-      <!-- <th width="20">No</th> -->
-      <th>Kode Produk</th>
+
       <th>Nama Produk</th>
       <th>Kategori</th>
-      <!-- <th>Merk</th> -->
       <th>Harga Beli</th>
       <th>Harga Jual</th>
-      <!-- <th>Diskon</th> -->
-      <!-- <th>Stok</th> -->
+      <th>Stok</th>
       <th width="100">Aksi</th>
    </tr>
 </thead>
@@ -47,7 +44,6 @@
   </div>
 </div>
 
-@include('produk.detail')
 @include('produk.form')
 @endsection
 
@@ -128,7 +124,7 @@ function editForm(id){
        $('#kode').val(data.kode_produk).attr('readonly', true);
        $('#nama').val(data.nama_produk);
        $('#kategori').val(data.id_kategori);
-       $('#deskripsi').val(data.deskripsi);
+       $('#merk').val(data.merk);
        $('#harga_beli').val(data.harga_beli);
        $('#diskon').val(data.diskon);
        $('#harga_jual').val(data.harga_jual);
@@ -139,14 +135,6 @@ function editForm(id){
        alert("Tidak dapat menampilkan data!");
      }
    });
-}
-
-
-function showDetail(id){
-    $('#modal-detail').modal('show');
-
-    table1.ajax.url("produk/"+id+"/lihat");
-    table1.ajax.reload();
 }
 
 function deleteData(id){

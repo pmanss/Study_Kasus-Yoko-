@@ -75,13 +75,13 @@
     </div>
   </div>
 
-  <!-- <div class="form-group">
+  <div class="form-group">
     <label for="foto" class="col-md-3 control-label">Foto Produk</label>
     <div class="col-md-4">
       <input id="foto" type="file" class="form-control" name="foto">
       <br><div class="tampil-kartu"></div>
     </div>
-  </div> -->
+  </div>
   
 </div>
    

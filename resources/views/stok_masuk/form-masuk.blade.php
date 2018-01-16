@@ -12,12 +12,14 @@
         
 <div class="modal-body">
 <div class="form-group">
-<label for="nama" class="col-md-3 control-label">Nama Produk</label>
+<label for="nama_produk" class="col-md-3 control-label">Nama Produk</label>
 <div class="col-md-6">
-  <select id="nama" type="text" class="form-control" name="nama" required>
+  <select id="nama_produk" type="text" class="form-control" name="nama_produk" required>
     <option value=""> -- Pilih Produk-- </option>
    
-    <option value=""></option>
+    @foreach($produk as $list)
+        <option value="{{ $list->id_produk }}">{{ $list->nama_produk }}</option>
+    @endforeach
 
   </select>
   <span class="help-block with-errors"></span>
@@ -25,17 +27,17 @@
 </div>
 
   <div class="form-group">
-    <label for="harga_beli" class="col-md-3 control-label">Jumlah</label>
+    <label for="jumlah" class="col-md-3 control-label">Jumlah</label>
     <div class="col-md-3">
-      <input id="harga_beli" type="text" class="form-control" name="harga_beli" required>
+      <input id="jumlah" type="text" class="form-control" name="jumlah" required>
       <span class="help-block with-errors"></span>
     </div>
   </div>
 
   <div class="form-group">
-    <label for="harga_beli" class="col-md-3 control-label">Harga</label>
+    <label for="harga" class="col-md-3 control-label">Harga</label>
     <div class="col-md-3">
-      <input id="harga_beli" type="text" class="form-control" name="harga_beli" required>
+      <input id="harga" type="text" class="form-control" name="harga" required>
       <span class="help-block with-errors"></span>
     </div>
   </div>

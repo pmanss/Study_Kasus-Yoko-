@@ -96,7 +96,7 @@
         </li>
       <li><a href="{{ route('user.index') }}""><i class="fa fa-user"></i> <span>Kasir</span></a></li>
       <li><a href="{{ route('member.index') }}"><i class="fa fa-credit-card"></i> <span>Member</span></a></li>
-      <li><a href="{{ route('user.index') }}""><i class="fa fa-bank"></i> <span>Gerai Cabang</span></a></li>      
+      <li><a href="{{ route('gerai.index') }}""><i class="fa fa-bank"></i> <span>Gerai Cabang</span></a></li>      
       <li class="treeview">
           <a href="#">
             <i class="glyphicon glyphicon-tags"></i>
@@ -106,9 +106,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ route('inventori.data') }}"><i class="fa fa-cube"></i> Kartu Stok</a></li>
-            <li><a href="{{ route('stok.masuk') }}"><i class="fa fa-cube"></i> Stok Masuk</a></li>
-            <li><a href="{{ route('stok.keluar') }}"><i class="fa fa-cube"></i> Stok Keluar</a></li>
+            <li><a href="{{ route('kartu-stok.index') }}"><i class="fa fa-cube"></i> Kartu Stok</a></li>
+            <li><a href="{{ route('stok-masuk.index') }}"><i class="fa fa-cube"></i> Stok Masuk</a></li>
+            <!-- <li><a href="{{ route('stok.keluar') }}"><i class="fa fa-cube"></i> Stok Keluar</a></li> -->
             
           </ul>
         </li>
@@ -119,7 +119,7 @@
       <li class="treeview">
           <a href="#">
             <i class="fa fa-th-large"></i>
-            <span>Pengeluaran</span>
+            <span>Tambah Stok</span>
             <span class="pull-right-container">
               <span class="label label-primary pull-right"><span class="glyphicon glyphicon-plus"></span></span>
             </span>

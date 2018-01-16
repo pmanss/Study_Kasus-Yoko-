@@ -7,15 +7,18 @@ use Redirect;
 use App\Pembelian;
 use App\Supplier;
 use App\Produk;
+use App\Gerai;
 use App\PembelianDetail;
 
 class PembelianDetailController extends Controller
 {
    public function  index(){
+    $gerai = Gerai::all();
+     
       $produk = Produk::all();
       $idpembelian = session('idpembelian');
       $supplier = Supplier::find(session('idsupplier'));
-      return view('pembelian_detail.index', compact('produk', 'idpembelian', 'supplier'));
+      return view('pembelian_detail.index', compact('produk', 'idpembelian', 'gerai', 'supplier'));
    }
 
     public function listData($id)

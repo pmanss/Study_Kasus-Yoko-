@@ -34,7 +34,6 @@
       <th>Harga Beli</th>
       <th>Harga Jual</th>
       <!-- <th>Diskon</th> -->
-      <!-- <th>Stok</th> -->
       <th width="100">Aksi</th>
    </tr>
 </thead>
@@ -140,7 +139,6 @@ function editForm(id){
      }
    });
 }
-
 
 function showDetail(id){
     $('#modal-detail').modal('show');

@@ -43,7 +43,7 @@ class LaporanController extends Controller
        $row[] = format_uang($pendapatan);
        $data[] = $row;
      }
-     $data[] = array("", "", "", "",format_uang($total_pendapatan));
+       $data[] = array("", "", "", "",format_uang($total_pendapatan));
 
      return $data;
    }

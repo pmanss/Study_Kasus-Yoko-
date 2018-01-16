@@ -80,15 +80,11 @@
           <div class="form-white">
             <form role="form">
               <div class="form-group">
-                <label for="name">Full Name</label>
+                <label for="name">Nama Bisnis</label>
                 <input type="text" class="form-control" id="name" placeholder="Your name">
               </div>
               <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" class="form-control" id="username" placeholder="Username">
-              </div>
-              <div class="form-group">
-                <label for="email2">Email address</label>
+                <label for="email2">Email</label>
                 <input type="email" class="form-control" id="email2" placeholder="Enter email">
               </div>
               <div class="form-group">
@@ -102,6 +98,10 @@
                     <input type="password" class="form-control" id="password3" placeholder="Password">
                   </div>
                 </div>
+              </div>
+              <div class="form-group">
+                <label for="telepon">No Telepon</label>
+                <input type="telepon" class="form-control" id="telepon" placeholder="62+">
               </div>
               <div class="checkbox">
                 <label>

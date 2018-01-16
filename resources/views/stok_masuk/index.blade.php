@@ -26,11 +26,10 @@
 <thead>
    <tr>
       <th width="20"><input type="checkbox" value="1" id="select-all"></th>
-
-      <th>Tanggal</th>
-      <th>Catatan</th>
-      <th>Jenis</th>
-      <th>Aksi</th>
+      <th>No</th>      
+      <th>Nama Produk</th>
+      <th>Jumlah</th>
+      <th>Harga Beli</th>
 
    </tr>
 </thead>
@@ -42,9 +41,9 @@
     </div>
   </div>
 </div>
-@include('inventori.form-masuk')
-@endsection
+@include('stok_masuk.form-masuk')
 
+@endsection
 
 @section('script')
 <script type="text/javascript">
@@ -52,42 +51,25 @@ var table, save_method;
 $(function(){
    table = $('.table').DataTable({
      "processing" : true,
-     "serverside" : true,
      "ajax" : {
-       "url" : "{{ route('produk.data') }}",
+       "url" : "{{ route('stok-masuk.data') }}",
        "type" : "GET"
-     },
-     'columnDefs': [{
-         'targets': 0,
-         'searchable': false,
-         'orderable': false
-      }],
-      'order': [1, 'asc']
+     }
    }); 
    
-   $('#select-all').click(function(){
-      $('input[type="checkbox"]').prop('checked', this.checked);
-   });
-
-  $('#modal-form form').validator().on('submit', function(e){
+   $('#modal-form form').validator().on('submit', function(e){
       if(!e.isDefaultPrevented()){
          var id = $('#id').val();
-         if(save_method == "add") url = "{{ route('produk.store') }}";
-         else url = "produk/"+id;
+         if(save_method == "add") url = "{{ route('stok-masuk.store') }}";
+         else url = "stok-masuk/"+id;
          
          $.ajax({
            url : url,
            type : "POST",
            data : $('#modal-form form').serialize(),
-           dataType: 'JSON',
            success : function(data){
-             if(data.msg=="error"){
-                alert('Kode produk sudah digunakan!');
-                $('#kode').focus().select();
-             }else{
-                $('#modal-form').modal('hide');
-                table.ajax.reload();
-             }            
+             $('#modal-form').modal('hide');
+             table.ajax.reload();
            },
            error : function(){
              alert("Tidak dapat menyimpan data!");
@@ -103,17 +85,39 @@ function addForm(){
    $('input[name=_method]').val('POST');
    $('#modal-form').modal('show');
    $('#modal-form form')[0].reset();            
-   $('.modal-title').text('Tambah Produk');
-   $('#kode').attr('readonly', false);
+   $('.modal-title').text('Tambah Stok Masuk');
 }
 
+function editForm(id){
+   save_method = "edit";
+   $('input[name=_method]').val('PATCH');
+   $('#modal-form form')[0].reset();
+   $.ajax({
+     url : "stok-masuk/"+id+"/edit",
+     type : "GET",
+     dataType : "JSON",
+     success : function(data){
+       $('#modal-form').modal('show');
+       $('.modal-title').text('Edit Stok Masuk');
+       
+       $('#id').val(data.id_stok_masuk);
+       $('#nama_produk').val(data.id_produk);
+       $('#jumlah').val(data.jumlah);
+       $('#harga').val(data.harga_beli);
 
-
+       
+       
+     },
+     error : function(){
+       alert("Tidak dapat menampilkan data!");
+     }
+   });
+}
 
 function deleteData(id){
-  if(confirm("Apakah yakin data akan dihapus?")){
+   if(confirm("Apakah yakin data akan dihapus?")){
      $.ajax({
-       url : "produk/"+id,
+       url : "stok-masuk/"+id,
        type : "POST",
        data : {'_method' : 'DELETE', '_token' : $('meta[name=csrf-token]').attr('content')},
        success : function(data){
@@ -125,22 +129,5 @@ function deleteData(id){
      });
    }
 }
-
-function deleteAll(){
-  if($('input:checked').length < 1){
-    alert('Pilih data yang akan dihapus!');
-  }else if(confirm("Apakah yakin akan menghapus semua data terpilih?")){
-     $.ajax({
-       url : "produk/hapus",
-       type : "POST",
-       data : $('#form-produk').serialize(),
-       success : function(data){
-         table.ajax.reload();
-       },
-       error : function(){
-         alert("Tidak dapat menghapus data!");
-       }
-     });
-   }
-}
+</script>
 @endsection

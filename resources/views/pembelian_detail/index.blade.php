@@ -26,6 +26,18 @@
 
 <form class="form form-horizontal form-produk" method="post">
 {{ csrf_field() }}
+<input type="hidden" name="idpembelian" value="{{ $idpembelian }}">
+  <div class="form-group">
+      <label for="id_gerai" class="col-md-2 control-label">Gerai Cabang</label>
+      <div class="col-md-5">
+        <div class="input-group">
+          <input id="id_gerai" type="text" class="form-control" name="id_gerai" autofocus required>
+          <span class="input-group-btn">
+            <button onclick="showGerai()" type="button" class="btn btn-info">...</button>
+          </span>
+        </div>
+      </div>
+  </div>
   <input type="hidden" name="idpembelian" value="{{ $idpembelian }}">
   <div class="form-group">
       <label for="kode" class="col-md-2 control-label">Kode Produk</label>
@@ -104,6 +116,7 @@
 </div>
 
 @include('pembelian_detail.produk')
+@include('pembelian_detail.gerai')
 @endsection
 
 @section('script')
@@ -190,6 +203,9 @@ function changeCount(id){
 
 function showProduct(){
   $('#modal-produk').modal('show');
+}
+function showGerai(){
+  $('#modal-gerai').modal('show');
 }
 
 function deleteItem(id){

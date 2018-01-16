@@ -35,6 +35,7 @@ Route::group(['middleware' => ['web', 'cekuser:1' ]], function(){
    Route::get('produk/data', 'ProdukController@listData')->name('produk.data');
    Route::post('produk/hapus', 'ProdukController@deleteSelected');
    Route::post('produk/cetak', 'ProdukController@printBarcode');
+   Route::get('produk/{id}/lihat', 'ProdukController@show');   
    Route::resource('produk', 'ProdukController');
 
 
@@ -45,10 +46,19 @@ Route::group(['middleware' => ['web', 'cekuser:1' ]], function(){
    Route::post('member/cetak', 'MemberController@printCard');
    Route::resource('member', 'MemberController');
 
-   Route::get('/inventori', 'InventoriController@index')->name('inventori.data');;
-   Route::get('/inventori/stok-masuk', 'InventoriController@stokmasuk')->name('stok.masuk');;
-   Route::get('/inventori/stok-keluar', 'InventoriController@stokkeluar')->name('stok.keluar');;
+   Route::get('inventori', 'InventoriController@index')->name('inventori.data');
+
+   Route::get('inventori/stok-keluar', 'InventoriController@stokkeluar')->name('stok.keluar');;
+
+
+   Route::get('stok-masuk/data', 'StokMasukController@listdata')->name('stok-masuk.data');
+   Route::resource('stok-masuk', 'StokMasukController');
+
+   Route::get('kartu-stok/data', 'KartuStokController@listdata')->name('kartu-stok.data');
+   Route::resource('kartu-stok', 'KartuStokController');
    
+   Route::get('gerai/data', 'GeraiController@listdata')->name('gerai.data');
+   Route::resource('gerai', 'GeraiController');
    
 
    Route::get('pengeluaran/data', 'PengeluaranController@listData')->name('pengeluaran.data');

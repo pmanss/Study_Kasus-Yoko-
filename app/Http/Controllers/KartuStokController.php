@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -7,31 +8,18 @@ use App\Kategori;
 use DataTables;
 use PDF;
 
-class InventoriController extends Controller
+class KartuStokController extends Controller
 {
-
     public function index()
     {
-       $kategori = Produk::all();      
-       return view('inventori.kartu-stok', compact('produk'));
-    }
-
-    public function stokkeluar()
-    {
-       $kategori = Produk::all();      
-       return view('inventori.stok-keluar', compact('produk'));
-    }
-
-    public function stokmasuk()
-    {
-       $kategori = Produk::all();      
-       return view('inventori.stok-masuk', compact('produk'));
+       $kategori = Kategori::all();      
+       return view('kartu_stok.index', compact('kategori'));
     }
 
     public function listData()
     {
     
-      $produk = Inventori::leftJoin('kategori', 'kategori.id_kategori', '=', 'produk.id_kategori')
+      $produk = Produk::leftJoin('kategori', 'kategori.id_kategori', '=', 'produk.id_kategori')
       ->orderBy('produk.id_produk', 'desc')
       ->get();
         $no = 0;
@@ -39,55 +27,22 @@ class InventoriController extends Controller
         foreach($produk as $list){
           $no ++;
           $row = array();
-           $row[] = "<input type='checkbox' name='id[]'' value='".$list->id_produk."'>";
+        //    $row[] = "<input type='checkbox' name='id[]'' value='".$list->id_produk."'>";
         //   $row[] = $no;
         $row[] = $list->kode_produk;
           $row[] = $list->nama_produk;
           $row[] = $list->nama_kategori;
-        //   $row[] = $list->deskripsi;
+          
           $row[] = "Rp. ".format_uang($list->harga_beli);
           $row[] = "Rp. ".format_uang($list->harga_jual);
           
-          
-        //   $row[] = $list->diskon."%";
-        //   $row[] = $list->stok;
-          $row[] = "<div class='btn-group'>
-                <a onclick='showDetail(".$list->id_produk.")' class='btn btn-success btn-sm'><i class='fa fa-eye'></i></a>                
-                <a onclick='editForm(".$list->id_produk.")' class='btn btn-primary btn-sm'><i class='fa fa-pencil'></i></a>
-                <a onclick='deleteData(".$list->id_produk.")' class='btn btn-danger btn-sm'><i class='fa fa-trash'></i></a></div>";
+          $row[] = $list->stok;
+      
           $data[] = $row;
         }
         
         return Datatables::of($data)->escapeColumns([])->make(true);
     }
-
-    public function show($id)
-   {
-   
-    $produk = Produk::leftJoin('kategori', 'kategori.id_kategori', '=', 'produk.id_kategori')
-        ->where('id_produk', '=', $id)
-    ->get();
-     $no = 0;
-     $data = array();
-     foreach($detail as $list){
-       $no ++;
-       $row = array();
-       $row[] = $list->kode_produk;
-          $row[] = $list->nama_produk;
-          $row[] = $list->nama_kategori;
-        //   $row[] = $list->deskripsi;
-          $row[] = "Rp. ".format_uang($list->harga_beli);
-          $row[] = "Rp. ".format_uang($list->harga_jual);
-          
-          
-        //   $row[] = $list->diskon."%";
-        //   $row[] = $list->stok;
-       $data[] = $row;
-     }
-    
-     $output = array("data" => $data);
-     return response()->json($output);
-   }
 
     public function store(Request $request)
     {
@@ -154,4 +109,3 @@ class InventoriController extends Controller
         return $pdf->stream();
     }
 }
-

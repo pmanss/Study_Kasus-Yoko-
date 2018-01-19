@@ -1,4 +1,4 @@
-<!-- <div class="modal" id="modal-detail" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+<div class="modal" id="modal-detail" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
    <div class="modal-dialog modal-lg">
       <div class="modal-content">
  
@@ -12,15 +12,13 @@
    <table class="table table-striped tabel-detail">
       <thead>
          <tr>
-         <th width="20">No</th>
+         <th>No</th>
          <th>Kode Produk</th>
          <th>Nama Produk</th>
          <th>Kategori</th>
          <th>Deskripsi</th>
          <th>Harga Beli</th>
          <th>Harga Jual</th>
-         <th>Diskon</th>
-         <th>Stok</th>
          </tr>
       </thead>
       <tbody></tbody>   
@@ -32,4 +30,4 @@
 
          </div>
       </div>
-   </div> -->
+   </div>

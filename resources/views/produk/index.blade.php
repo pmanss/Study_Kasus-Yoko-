@@ -26,7 +26,7 @@
 <thead>
    <tr>
       <th width="20"><input type="checkbox" value="1" id="select-all"></th>
-      <!-- <th width="20">No</th> -->
+      <th width="20">No</th>
       <th>Kode Produk</th>
       <th>Nama Produk</th>
       <th>Kategori</th>
@@ -52,7 +52,7 @@
 
 @section('script')
 <script type="text/javascript">
-var table, save_method;
+var table, save_method, table1;
 $(function(){
    table = $('.table').DataTable({
      "processing" : true,
@@ -68,6 +68,12 @@ $(function(){
       }],
       'order': [1, 'asc']
    }); 
+
+   table1 = $('.tabel-detail').DataTable({
+     "dom" : 'Brt',
+     "bSort" : false,
+     "processing" : true
+    });
    
    $('#select-all').click(function(){
       $('input[type="checkbox"]').prop('checked', this.checked);
@@ -141,10 +147,10 @@ function editForm(id){
 }
 
 function showDetail(id){
-    $('#modal-detail').modal('show');
+  $('#modal-detail').modal('show');
 
-    table1.ajax.url("produk/"+id+"/lihat");
-    table1.ajax.reload();
+  table1.ajax.url("produk/"+id+"/lihat");
+  table1.ajax.reload();
 }
 
 function deleteData(id){

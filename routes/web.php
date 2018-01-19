@@ -20,7 +20,8 @@ Route::group(['middleware' => 'web'], function(){
    Route::patch('user/{id}/change', 'UserController@changeProfil');
 
    Route::get('transaksi/baru', 'PenjualanDetailController@newSession')->name('transaksi.new');
-   Route::get('transaksi/{id}/data', 'PenjualanDetailController@listData')->name('transaksi.data');
+   Route::get('transaksi/{id}/data', 'PenjualanDetailController@listData')->name('transaksksi.data');
+   Route::get('transaksi/aktif', 'PenjualanDetailController@aktif')->name('transaksi.aktif');   
    Route::get('transaksi/cetaknota', 'PenjualanDetailController@printNota')->name('transaksi.cetak');
    Route::get('transaksi/notapdf', 'PenjualanDetailController@notaPDF')->name('transaksi.pdf');
    Route::post('transaksi/simpan', 'PenjualanDetailController@saveData');

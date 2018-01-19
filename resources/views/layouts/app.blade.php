@@ -146,6 +146,7 @@
      
       <li><a href="{{ route('setting.index') }}"><i class="fa fa-gears"></i> <span>Setting</span></a></li>
       @else
+      <li><a href="{{ route('transaksi.aktif') }}"><i class="fa fa-shopping-cart"></i> <span>Daftar Transaksi</span></a></li>
       <li><a href="{{ route('transaksi.index') }}"><i class="fa fa-shopping-cart"></i> <span>Transaksi</span></a></li>
       <li><a href="{{ route('transaksi.new') }}"><i class="fa fa-cart-plus"></i> <span>Transaksi Baru</span></a></li>
       @endif

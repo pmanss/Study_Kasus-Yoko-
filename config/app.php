@@ -179,9 +179,6 @@ return [
 
         // Tambahan 
         Yajra\Datatables\DatatablesServiceProvider::class,
-        Milon\Barcode\BarcodeServiceProvider::class,
-        Barryvdh\DomPDF\ServiceProvider::class,
-        Spatie\Fractal\FractalServiceProvider::class,
 
     ],
 
@@ -233,10 +230,6 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         // Tambahan
         'Datatables' => Yajra\Datatables\Facades\Datatables::class,
-        'DNS1D' => Milon\Barcode\Facades\DNS1DFacade::class,
-        'PDF' => Barryvdh\DomPDF\Facade::class,
-        'Fractal' => Spatie\Fractal\FractalFacade::class,
-        
 
     ],
 
